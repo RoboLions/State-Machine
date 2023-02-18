@@ -180,4 +180,12 @@ public final class Constants {
         public static final double D = 0.0;
         public static final double F = 0.0;
     }
+
+    public static final class Intake {
+        // TODO: change these values
+        public static final double INTAKE_ROLLER_POWER = 0.1;
+
+        public static final double INTAKE_DOWN_POSITION = 0.0;
+        public static final double INTAKE_UP_POSITION = 0.3;
+    }
 }

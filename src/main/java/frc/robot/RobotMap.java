@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import frc.robot.lib.states.Arm;
 import frc.robot.lib.states.Swerve;
+import frc.robot.lib.states.Intake;
 
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 
@@ -25,6 +26,7 @@ public class RobotMap {
     public static final int pigeonID = 5;
     public static final int leftBaseIntakeID = 6;
     public static final int rightBaseIntakeID = 7;
+    public static final int intakeVerticalID = 15; // TODO: fix port number
     public static final int intakeRollerID = 8;
     public static final int armFirstStageID = 9;
     public static final int armSecondStageID = 10;
@@ -36,6 +38,7 @@ public class RobotMap {
     public static WPI_TalonFX armFirstStage;
     public static WPI_TalonFX armSecondStage;
     public static WPI_TalonFX wrist;
+    public static WPI_TalonFX intakeVertical;
     public static VictorSPX intakeRoller;
     public static VictorSPX claw;
     // TODO: tbd left and right base intake motors
@@ -46,6 +49,7 @@ public class RobotMap {
     public static AprilTagFieldLayout aprilTagFieldLayout;
     public static Field2d Field2d;
     public static Arm arm;
+    public static Intake intake;
 
     /* Xbox controllers */
     public static XboxController manipulatorController;
@@ -58,12 +62,14 @@ public class RobotMap {
         armSecondStage = new WPI_TalonFX(armSecondStageID);
         wrist = new WPI_TalonFX(wristID);
         intakeRoller = new VictorSPX(intakeRollerID);
+        intakeVertical = new WPI_TalonFX(intakeVerticalID);
         claw = new VictorSPX(clawID);
         ctreConfigs = new CTREConfigs();
         manipulatorController = new XboxController(1);
         driverController = new XboxController(0);
         swerve = new Swerve();
         arm = new Arm();
+        intake = new Intake();
         try {
             aprilTagFieldLayout = AprilTagFieldLayout.loadFromResource(AprilTagFields.k2023ChargedUp.m_resourceFile);
         } catch (Exception e) {

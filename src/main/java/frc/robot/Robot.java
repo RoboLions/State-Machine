@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.Timer;
 import frc.robot.lib.states.Swerve;
 import frc.robot.subsystems.arm.ArmStateMachine;
 import frc.robot.subsystems.drive.DrivetrainStateMachine;
+import frc.robot.subsystems.intake.IntakeStateMachine;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -27,6 +28,7 @@ public class Robot extends TimedRobot {
   /* state machine instances */
   private DrivetrainStateMachine drivetrainStateMachine;
   private ArmStateMachine armStateMachine;
+  private IntakeStateMachine intakeStateMachine;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -40,6 +42,7 @@ public class Robot extends TimedRobot {
     RobotMap.armSecondStage.configFactoryDefault();
     RobotMap.wrist.configFactoryDefault();
     RobotMap.intakeRoller.configFactoryDefault();
+    RobotMap.intakeVertical.configFactoryDefault();
     RobotMap.claw.configFactoryDefault();
     RobotMap.swerve.zeroGyro();
 
@@ -47,6 +50,7 @@ public class Robot extends TimedRobot {
     * See https://github.com/Team364/BaseFalconSwerve/issues/8 for more info. */
     Timer.delay(1.0);
     RobotMap.swerve.resetModulesToAbsolute();
+    RobotMap.intake.resetEncoders();
 
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
@@ -56,6 +60,7 @@ public class Robot extends TimedRobot {
 
     drivetrainStateMachine = new DrivetrainStateMachine();
     armStateMachine = new ArmStateMachine();
+    intakeStateMachine = new IntakeStateMachine();
   }
 
   /**
@@ -71,6 +76,7 @@ public class Robot extends TimedRobot {
     /* state machines always execute current state and check for next state */
     drivetrainStateMachine.setNextState();
     armStateMachine.setNextState();
+    intakeStateMachine.setNextState();
 
     RobotMap.swerve.updatePoses();
     RobotMap.Field2d.setRobotPose(Swerve.swerveOdometry.getEstimatedPosition());
