@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import frc.robot.lib.states.Arm;
+import frc.robot.lib.states.LED;
 import frc.robot.lib.states.Swerve;
 
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
@@ -30,6 +31,7 @@ public class RobotMap {
     public static final int armSecondStageID = 10;
     public static final int wristID = 11;
     public static final int clawID = 12;
+    public static final int CANdleID = 13; //TODO change ID
     
     /* Motor + sensor instances */
     public static WPI_Pigeon2 gyro;
@@ -46,6 +48,7 @@ public class RobotMap {
     public static AprilTagFieldLayout aprilTagFieldLayout;
     public static Field2d Field2d;
     public static Arm arm;
+    public static LED led;
 
     /* Xbox controllers */
     public static XboxController manipulatorController;
