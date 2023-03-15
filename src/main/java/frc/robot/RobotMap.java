@@ -31,7 +31,7 @@ public class RobotMap {
     public static final int armSecondStageID = 10;
     public static final int wristID = 11;
     public static final int clawID = 12;
-    public static final int CANdleID = 13; //TODO change ID
+    public static final int CANdleID = 34; //TODO change ID
     
     /* Motor + sensor instances */
     public static WPI_Pigeon2 gyro;

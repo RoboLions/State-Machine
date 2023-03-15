@@ -17,7 +17,7 @@ public class LED {
     public static final CANdle m_candle = new CANdle(RobotMap.CANdleID, "rio");
     public final int LedCount = 42;
     
-    public Animation m_toAnimate = null;
+    public static Animation m_toAnimate = null;
 
     public void CANdleSystem() {
         CANdleConfiguration configAll = new CANdleConfiguration();

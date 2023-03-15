@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Timer;
 import frc.robot.lib.states.Swerve;
+import frc.robot.subsystems.LED.LEDStateMachine;
 import frc.robot.subsystems.arm.ArmStateMachine;
 import frc.robot.subsystems.drive.DrivetrainStateMachine;
 
@@ -25,8 +26,9 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
   /* state machine instances */
-  private DrivetrainStateMachine drivetrainStateMachine;
-  private ArmStateMachine armStateMachine;
+  //private DrivetrainStateMachine drivetrainStateMachine;
+  //private ArmStateMachine armStateMachine;
+  private LEDStateMachine ledStateMachine;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -54,8 +56,9 @@ public class Robot extends TimedRobot {
 
     SmartDashboard.putData("Field", RobotMap.Field2d);
 
-    drivetrainStateMachine = new DrivetrainStateMachine();
-    armStateMachine = new ArmStateMachine();
+    //drivetrainStateMachine = new DrivetrainStateMachine();
+    //armStateMachine = new ArmStateMachine();
+    ledStateMachine = new LEDStateMachine();
   }
 
   /**
@@ -69,8 +72,9 @@ public class Robot extends TimedRobot {
   public void robotPeriodic() {
 
     /* state machines always execute current state and check for next state */
-    drivetrainStateMachine.setNextState();
-    armStateMachine.setNextState();
+    //drivetrainStateMachine.setNextState();
+    //armStateMachine.setNextState();
+    ledStateMachine.setNextState();
 
     RobotMap.swerve.updatePoses();
     RobotMap.Field2d.setRobotPose(Swerve.swerveOdometry.getEstimatedPosition());
